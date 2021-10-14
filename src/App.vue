@@ -2,50 +2,52 @@
   <main id="app">
     <b-container class="products-row">
       <div>
-  <b-navbar toggleable="lg" type="dark" variant="info">
-    <b-navbar-brand>NavBar</b-navbar-brand>
+        <b-navbar class="rounded" toggleable="lg" type="dark" variant="info">
+          <b-navbar-brand>ShopForce</b-navbar-brand>
 
-    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-    <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav class="ml-auto">
-        <b-nav-form>
-             <select v-model="category">
-      <option value="bags">Bags</option>
-      <option value="hats">Hats</option>
-      <option value="shoes">Shoes</option>
-    </select>
-    <b-row v-for="product in filterProductsByCategory" :key="product"> </b-row>
-        </b-nav-form>
+          <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+          <b-collapse id="nav-collapse" is-nav>
+            <b-navbar-nav class="ml-auto">
+              <b-nav-text ><strong> Product types</strong> </b-nav-text>
+              <b-nav-form>
+                <b-select v-model="category" classname="size-sm">
+                  <option value="running">Running</option>
+                  <option value="basketball">Basketball</option>
+                  <option value="casual">Casual</option>
+                </b-select>
+                <b-row
+                  v-for="product in filterProductsByCategory"
+                  :key="product"
+                >
+                </b-row>
+              </b-nav-form>
 
-        <b-nav-item-dropdown text="Lang" right>
-          <b-dropdown-item href="#">EN</b-dropdown-item>
-          <b-dropdown-item href="#">DE</b-dropdown-item>
-        </b-nav-item-dropdown>
+              <b-nav-item-dropdown text="Language" right>
+                <b-dropdown-item href="#">EN</b-dropdown-item>
+                <b-dropdown-item href="#">DE</b-dropdown-item>
+              </b-nav-item-dropdown>
 
-        <b-nav-item-dropdown right>
-          <template #button-content>
-            <em>Cart</em>
-          </template>
-          <b-dropdown-item href="#">Check my cart</b-dropdown-item>
-          <b-dropdown-item href="#">Check my deals</b-dropdown-item>
-        </b-nav-item-dropdown>
-      </b-navbar-nav>
-    </b-collapse>
-  </b-navbar>
-</div>
+              <b-nav-item-dropdown right>
+                <template #button-content>
+                  <em>Your Cart</em>
+                </template>
+                <b-dropdown-item href="#">Check my cart</b-dropdown-item>
+                <b-dropdown-item href="#">Check my deals</b-dropdown-item>
+              </b-nav-item-dropdown>
+            </b-navbar-nav>
+          </b-collapse>
+        </b-navbar>
+      </div>
       <b-row>
         <b-col
-          cols="4"
+          cols="12" sm="2" md="4"
           v-for="(product, index) in filterProductsByCategory"
           :key="index"
         >
           <Product :product="product" />
         </b-col>
       </b-row>
-      
     </b-container>
-
-    
   </main>
 </template>
 
@@ -69,7 +71,7 @@ export default {
         {
           title: "black nike bag",
           color: "black",
-          category: "bags",
+          category: "basketball",
           brand: "nike",
           style: "sport",
           src: require("./assets/blackbag.png"),
@@ -77,7 +79,7 @@ export default {
         {
           title: "basic black shoe",
           color: "black",
-          category: "shoes",
+          category: "basketball",
           brand: "basic",
           style: "sport",
           src: require("./assets/blackshoe.png"),
@@ -85,7 +87,7 @@ export default {
         {
           title: "blue basic hat",
           color: "blue",
-          category: "bags",
+          category: "running",
           brand: "basic",
           style: "street",
           src: require("./assets/bluebag.png"),
@@ -93,7 +95,7 @@ export default {
         {
           title: "blue nike hat",
           color: "blue",
-          category: "hats",
+          category: "casual",
           brand: "nike",
           style: "sport",
           src: require("./assets/bluehat.png"),
@@ -101,7 +103,7 @@ export default {
         {
           title: "blue nike shoe",
           color: "blue",
-          category: "shoes",
+          category: "running",
           brand: "nike",
           style: "streetwear",
           src: require("./assets/blueshoe.png"),
@@ -109,7 +111,7 @@ export default {
         {
           title: "gray basic hat",
           color: "gray",
-          category: "hats",
+          category: "casual",
           brand: "nature",
           style: "hiking",
           src: require("./assets/grayhat.png"),
@@ -117,7 +119,7 @@ export default {
         {
           title: "green nature bag",
           color: "green",
-          category: "bags",
+          category: "running",
           brand: "nature",
           style: "hiking",
           src: require("./assets/greenbag.png"),
@@ -125,7 +127,7 @@ export default {
         {
           title: "green nature hat",
           color: "green",
-          category: "hats",
+          category: "casual",
           brand: "nature",
           info: "hiking",
           src: require("./assets/greenhat.png"),
@@ -133,7 +135,7 @@ export default {
         {
           title: "pink nike shoe",
           color: "pink",
-          category: "shoes",
+          category: "running",
           brand: "nike",
           style: "sport",
           src: require("./assets/pinkshoe.png"),
@@ -141,7 +143,7 @@ export default {
         {
           title: "red basic bag",
           color: "red",
-          category: "bags",
+          category: "casual",
           brand: "basic",
           style: "streetwear",
           src: require("./assets/redbag.png"),
@@ -149,7 +151,7 @@ export default {
         {
           title: "red mcdonalds visor",
           color: "red",
-          category: "hats",
+          category: "basketball",
           brand: "mcdonalds",
           style: "sport",
           src: require("./assets/redhat.png"),
@@ -157,7 +159,7 @@ export default {
         {
           title: "red nike shoes",
           color: "red",
-          category: "shoes",
+          category: "basketball",
           brand: "nike",
           style: "sport",
           src: require("./assets/redshoe.png"),
