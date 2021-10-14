@@ -8,7 +8,8 @@
           <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
           <b-collapse id="nav-collapse" is-nav>
             <b-navbar-nav class="ml-auto">
-              <b-nav-text ><strong> Product types</strong> </b-nav-text>
+              <b-nav-text class="mr-2" ><strong> Product types</strong> </b-nav-text>
+    
               <b-nav-form>
                 <b-select v-model="category" classname="size-sm">
                   <option value="running">Running</option>
