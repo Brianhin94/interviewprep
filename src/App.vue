@@ -1,25 +1,51 @@
 <template>
   <main id="app">
-      <select v-model="category">
-            <option value="bags">Bags</option>
-            <option value="shoes">Hats</option>
-            <option value="shoes">Shoes</option>
-        </select> 
-        <ul>
-            <li v-for="product in filterProductByCategory" :key="product">Product Name : {{product.name}} - type ({{product.category}})</li>
-        </ul>
     <b-container class="products-row">
+      <div>
+  <b-navbar toggleable="lg" type="dark" variant="info">
+    <b-navbar-brand>NavBar</b-navbar-brand>
+
+    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+    <b-collapse id="nav-collapse" is-nav>
+      <b-navbar-nav class="ml-auto">
+        <b-nav-form>
+             <select v-model="category">
+      <option value="bags">Bags</option>
+      <option value="hats">Hats</option>
+      <option value="shoes">Shoes</option>
+    </select>
+    <b-row v-for="product in filterProductsByCategory" :key="product"> </b-row>
+        </b-nav-form>
+
+        <b-nav-item-dropdown text="Lang" right>
+          <b-dropdown-item href="#">EN</b-dropdown-item>
+          <b-dropdown-item href="#">DE</b-dropdown-item>
+        </b-nav-item-dropdown>
+
+        <b-nav-item-dropdown right>
+          <template #button-content>
+            <em>Cart</em>
+          </template>
+          <b-dropdown-item href="#">Check my cart</b-dropdown-item>
+          <b-dropdown-item href="#">Check my deals</b-dropdown-item>
+        </b-nav-item-dropdown>
+      </b-navbar-nav>
+    </b-collapse>
+  </b-navbar>
+</div>
       <b-row>
-        <b-col cols="4" v-for="(product, index) in products" :key="index">
-          <!-- <b-row v-if="index % 4 == 0"> -->
-          <!-- <b-col cols="4"> -->
+        <b-col
+          cols="4"
+          v-for="(product, index) in filterProductsByCategory"
+          :key="index"
+        >
           <Product :product="product" />
-        
-          
         </b-col>
-        <!-- </b-row> -->
       </b-row>
+      
     </b-container>
+
+    
   </main>
 </template>
 
@@ -27,7 +53,7 @@
 <script>
 import Product from "./components/Product.vue";
 import Vue from "vue";
-import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
+import BootstrapVue from "bootstrap-vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
@@ -38,7 +64,7 @@ export default {
   },
   data() {
     return {
-      category: '',
+      category: "",
       products: [
         {
           title: "black nike bag",
@@ -137,16 +163,17 @@ export default {
           src: require("./assets/redshoe.png"),
         },
       ],
-         computed: {
-            filterProductsByCategory: function(){
-                return this.products.filter(product => !product.category.indexOf(this.category))
-            }
-        }
     };
+  },
+  computed: {
+    filterProductsByCategory: function () {
+      return this.products.filter(
+        (Product) => !Product.category.indexOf(this.category)
+      );
+    },
   },
 };
 Vue.use(BootstrapVue);
-Vue.use(IconsPlugin);
 </script>
 
 <style>
