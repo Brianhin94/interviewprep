@@ -12,6 +12,7 @@
     
               <b-nav-form>
                 <b-select v-model="category" classname="size-sm">
+                 <option value=""></option>
                   <option value="running">Running</option>
                   <option value="basketball">Basketball</option>
                   <option value="casual">Casual</option>
