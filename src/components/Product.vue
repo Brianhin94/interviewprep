@@ -24,6 +24,6 @@ export default {
   width: 100% !important;
   height: 200px !important;
   object-fit: cover !important;
-  background: cornflowerblue
+  background: cornflowerblue;
 }
 </style>

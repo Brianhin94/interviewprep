@@ -8,11 +8,13 @@
           <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
           <b-collapse id="nav-collapse" is-nav>
             <b-navbar-nav class="ml-auto">
-              <b-nav-text class="mr-2" ><strong> Product types: </strong> </b-nav-text>
-    
+              <b-nav-text class="mr-2"
+                ><strong> Product types: </strong>
+              </b-nav-text>
+
               <b-nav-form>
                 <b-select v-model="category" classname="size-sm">
-                 <option value=""></option>
+                  <option value=""></option>
                   <option value="running">Running</option>
                   <option value="basketball">Basketball</option>
                   <option value="casual">Casual</option>
@@ -42,7 +44,9 @@
       </div>
       <b-row>
         <b-col
-          cols="12" sm="2" md="4"
+          cols="12"
+          sm="2"
+          md="4"
           v-for="(product, index) in filterProductsByCategory"
           :key="index"
         >
