@@ -91,9 +91,9 @@ export default {
           src: require("./assets/blackshoe.png"),
         },
         {
-          title: "blue basic hat",
+          title: "blue basic bag",
           color: "blue",
-          category: "running",
+          category: "casual",
           brand: "basic",
           style: "street",
           src: require("./assets/bluebag.png"),
